@@ -10,7 +10,7 @@ import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 public class BoardDAO {
-	
+
 	Connection conn = null;
 	PreparedStatement stmt = null;
 	ResultSet rs = null;
@@ -60,17 +60,17 @@ public class BoardDAO {
 			stmt.setString(3, vo.getWriter());
 			stmt.setString(4, vo.getContent());
 			stmt.setInt(5, vo.getSeq());
-			
+
 			System.out.println(vo.getCategory() + "-" +vo.getTitle() + "-" + vo.getWriter() + "-" + vo.getContent() + "-" + vo.getSeq());
 			stmt.executeUpdate();
 			return 1;
-			
+
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
 		return 0;
-	}	
-	
+	}
+
 	public BoardVO getBoard(int seq) {
 		BoardVO one = new BoardVO();
 		System.out.println("===> JDBC로 getBoard() 기능 처리");
@@ -93,7 +93,7 @@ public class BoardDAO {
 		}
 		return one;
 	}
-	
+
 	public List<BoardVO> getBoardList(){
 		List<BoardVO> list = new ArrayList<BoardVO>();
 		System.out.println("===> JDBC로 getBoardList() 기능 처리");
@@ -116,7 +116,7 @@ public class BoardDAO {
 			rs.close();
 		} catch (Exception e) {
 			e.printStackTrace();
-		} 
+		}
 		return list;
 	}
 }
